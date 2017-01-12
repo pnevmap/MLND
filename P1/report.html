@@ -17725,7 +17725,7 @@ Wk4KNiGEEEIILff/+l/1AWPS+loAAAAASUVORK5CYII=
 <p><strong>Answer: </strong> In k-fold cross-validation, the sample is randomly partitioned into k equal size subsamples. Each of them is used as the testing subsample, and the rest k-1 subsamples are used as training data. The cross-validation process is then repeated k times, one for each fold, with each of the k subsamples used exactly once as the validation data. The k results are combined or averaged to produce a single estimation.</p>
 <p>The benefit of k-fold cross-validation technique is that all observations are used for both training and validation, and each observation is used for validation exactly once. Thus we achive improvement of model's accuracy.</p>
 <p>Suppose there is no cross-validated set.The grid search may choose values of parameters that score highly for a particular validation/test set. So no cross-validated set produces a model that fits the validation set well.</p>
-<p>With a cross-validated set the model is validated k times. If the averaged score is high, the model (with parameters chosen from grid search) is generalised. So cross-validated set produces a model that generalizes well to unseen data (which is the solution)</p>
+<p>With a cross-validated set, the model is validated k times. If the averaged score is high, then the model (with parameters chosen from grid search) is generalised. So cross-validated set produces a model that generalizes well to unseen data (which is the solution)</p>
 <p>In our case we can use grid search with k-fold cross-validation for tuning our model for the max_depth parameter.</p>
 
 </div>
