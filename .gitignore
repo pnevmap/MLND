@@ -98,3 +98,4 @@ ENV/
 .gitignore
 .idea/
 P0/.ipynb_checkpoints/
+/Clustering-Mini-Project/
