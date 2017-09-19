@@ -92,7 +92,6 @@ def biplot(good_data, reduced_data, pca):
                Needs to be a pandas dataframe with valid column names
     reduced_data: the reduced data (the first two dimensions are plotted)
     pca: pca object that contains the components_ attribute
-
     return: a matplotlib AxesSubplot object (for any additional customization)
     
     This procedure is inspired by the script:
