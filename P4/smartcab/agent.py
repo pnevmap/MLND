@@ -117,8 +117,8 @@ class LearningAgent(Agent):
         if random.random() <= self.epsilon:
             return random.choice(self.valid_actions)
         else:
-            return self.get_maxQ(state)
-        return action
+            actions_with_maxQ = [action for action in self.Q[state] if action == self.get_maxQ(state)]
+            return random.choice(actions_with_maxQ)
 
     def learn(self, state, action, reward):
         """ The learn function is called after the agent completes an action and
@@ -165,7 +165,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent, learning=True, alpha=0.004, epsilon=1)
+    agent = env.create_agent(LearningAgent, learning=True, alpha=0.0035, epsilon=1)
 
     ##############
     # Follow the driving agent
