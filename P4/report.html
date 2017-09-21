@@ -16662,9 +16662,9 @@ WEhmVgAAAABJRU5ErkJggg==
 <p><strong>Answer:</strong></p>
 <ol>
 <li>The optimal policy can be summarized bellow:  <ul>
-<li>If the lights are 'red' and the waypoint is not 'right' then the agent should Idle. In the case, the lights are 'red' and the waypoint is 'right' and there is no collision then the agent should turn 'right'. (A collision is possible if the 'left' or 'right' vehicle moves 'forward') </li>
+<li>If the lights are 'red' and the waypoint is not 'right' then the agent should Idle. In the case, the lights are 'red' and the waypoint is 'right' and there is no collision then the agent should turn 'right'. (A collision is possible if the 'left' vehicle moves 'forward') </li>
 <li>Now, when the lights are 'green' and there is no collision then the agent should be rewarded to move. 
-(Here a collision is possible when the 'waypoint' is 'right' and 'left' traffic is 'forward', the waypoint is 'forward' and left or right traffic is  'forward', the waypoint is 'left', and oncoming vehicle is 'forwards'  or 'right' etc)</li>
+(Here a collision is possible when the 'waypoint' is 'right' and 'left' traffic is 'forward', the waypoint is 'left', and oncoming vehicle is 'forwards'  or 'right' etc)</li>
 </ul>
 </li>
 <li>Investigating the log we realize that the policy rating is correct in the vast majority of cases.  </li>
@@ -16683,12 +16683,12 @@ WEhmVgAAAABJRU5ErkJggg==
 -- left : -0.04</p>
 </blockquote>
 </li>
-<li><p>not learnt optimal policy for red light, 'right' waypoint: The 'right' vehicle moves forward. As the action 'right' has the max Q value our smartcab will be unlucky the smartcab turn turn and will crash with the right vehicle</p>
-<blockquote><p>('right', 'red', 'left', 'forward', 'left')<br>
+<li><p>not learnt optimal policy for red light, 'right' waypoint: The 'left' vehicle moves forward. As both actions 'left' and None have the max Q value our agent might randomly (but unlyckily) choose to turn left and crash with the left vehicle</p>
+<blockquote><p>('right', 'red', 'forward', 'right', 'forward')<br>
 -- forward : -0.14<br>
--- right : 0.02<br>
--- None : 0.00<br>
--- left : -0.14</p>
+-- right : -0.07<br>
+-- None : -0.00<br>
+-- left : 0.00</p>
 </blockquote>
 </li>
 </ol>
@@ -16723,8 +16723,8 @@ WEhmVgAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
-The environmetal issue is that the agent is not aware of the destination, it only knows the next waypoint. That said, it is it impossible for the agent cannot design any 2nd step to the destination and valuate future rewards.
-The smartcabs issue is that in each trial the destination of the agent changes, so a route that was followed before while gaining good rewards may be completely invalid in the new trial.</p>
+The environmental issue is that in each trial the destination of the agent changes, so a route that was followed before while gaining good rewards may be completely invalid in the new trial. In addition, the traffic and the trafic lights are random and the roads density and capacity are constant.
+Also is that the agent is aware only of local and not global info such as its position relative to the destination. The smartcab only knows the next waypoint. That said, it is it impossible for the agent cannot design any 2nd step to the destination and valuate future rewards.</p>
 
 </div>
 </div>
